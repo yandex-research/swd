@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+<!--   <meta name="description" content="invertible Consistency Distillation (iCD), a generalized consistency distillation framework that facilitates both high-quality image synthesis and accurate image encoding in only 3-4 inference steps."> -->
+  <meta property="og:title" content="Scale-wise Distillation of Diffusion Models"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+<!--   <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/> -->
+
+<!-- 
+  <meta name="twitter:title" content="Invertible Consistency Distillation for
+Text-Guided Image Editing in Around 7 Steps">
+  <meta name="twitter:description" content="invertible Consistency Distillation (iCD), a generalized consistency distillation framework that facilitates both high-quality image synthesis and accurate image encoding in only 3-4 inference steps.">
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>SWD</title>
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h2 class="title is-2 publication-title">Scale-wise Distillation of Diffusion Models</h2>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <!-- <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">Nikita Starodubcev</a><sup>1, 2</sup>,</span> -->
+                    <a href="https://scholar.google.com/citations?user=o6pRm_gAAAAJ&hl" target="_blank">Nikita Starodubcev</a><sup></sup>,</span>
+                <span class="author-block">
+                    <a href="https://scholar.google.com/citations?hl=en&user=L78B2lcAAAAJ&view_op=list_works&sortby=pubdate" target="_blank">Denis Kuznedelev</a><sup></sup>,</span>
+                  <span class="author-block">
+                    <a href="https://scholar.google.ru/citations?user=2Kv3JP0AAAAJ&hl" target="_blank">Artem Babenko</a><sup></sup>,
+                  </span>
+                  <span class="author-block">
+                    <a href="https://scholar.google.com/citations?hl=ru&user=NiPmk8oAAAAJ" target="_blank">Dmitry Baranchuk</a><sup></sup>
+                  </span>
+                  </div>
+
+                  <div class="is-size-5 publication-authors">
+                    <span class="author-block">Yandex Research
+                    <!-- <br>Conferance name and year -->
+                    <!-- <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span> -->
+                  </div>
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                         <!-- Arxiv PDF link -->
+                      <span class="link-block">
+                        <a href="https://huggingface.co/spaces/dbaranchuk/Scale-wise-Distillation" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Demo</span>
+                      </a>
+                      </span>
+
+                      <span class="link-block">
+                        <a href="https://arxiv.org" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper</span>
+                      </a>
+                      </span>
+
+                    <!-- Supplementary PDF link -->
+                    <!-- <span class="link-block">
+                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                      </span>
+                      <span>Supplementary</span>
+                    </a>
+                  </span> -->
+
+                  <!-- Github link -->
+                  <span class="link-block">
+                    <a href="https://github.com/yandex-research/swd" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+
+                <!-- ArXiv abstract Link -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+      <div class="columns is-centered has-text-centered">
+        <h2> &#x2022; SwD is twice as fast as leading distillation methods</h2>
+        </div>
+  <br>
+  <div class="columns is-centered has-text-centered">
+  <h2 > &#x2022; SwD surpasses leading distillation methods within the same computational budget.</h2>
+    </div>
+
+  <section class="section hero is-small">
+  <div class="container is-max-desktop">
+    <p>
+      <img src="static/images/main_2.jpg"/> <p></p>
+  </div>
+</section>
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            We present SwD, a scale-wise distillation framework of diffusion models (DMs), which effectively employs next-scale prediction ideas for diffusion-based few-step generators. In more detail, SwD is inspired by the recent insights relating diffusion processes to the implicit spectral autoregression. We suppose that DMs can initiate generation at lower data resolutions and gradually upscale the samples at each denoising step without loss in performance while significantly reducing computational costs.
+
+SwD naturally integrates this idea into existing diffusion distillation methods based on distribution matching, breaking the limits in DM acceleration. Also, we enrich the family of distribution matching approaches by introducing a novel patch loss enforcing finer-grained similarity to the target distribution.
+
+When applied to state-of-the-art text-to-image diffusion models, SwD approaches the inference times of two full resolution steps and significantly outperforms the counterparts under the same computation budget, as evidenced by both automated metrics and human preference studies.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+  <section class="section hero is-small">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Method</h2>
+        <div class="content has-text-justified">
+          <p>
+            <br> <b>1. Scale-wise Distillation</b> </br> <p>
+          The generation process begins with Gaussian noise at the lowest resolution, such as 256×256.
+          At each step, the model upscales the previous prediction to a higher resolution, injects noise based on
+          the current timestep, and predicts a cleaner version of the image at the new resolution. This progressive
+          upscaling continues until the target resolution, like 1024×1024, is reached, resulting in a high-quality image.
+
+          <br>
+
+          The training pipeline for SwD involves sampling full-resolution images, downscaling them to lower resolutions,
+          and encoding them into the latent space. The latent representations are upscaled, noised based on the timestep,
+          and fed into the generator, which predicts clean latents at the target scale. A distribution matching loss
+          is then computed between the predicted and target latents. This process is repeated iteratively across multiple
+          scales, training the model to generate high-quality images progressively.
+
+          The figures below visually demonstrate the SwD training and inference pipelines. <br>
+        </p>
+            <img src="static/images/method.png" alt="MY ALT TEXT"/> <p></p>
+             <br> <b>2. Patch Distribution Matching </b> <p>
+          <p>Patch Distribution Matching (PDM) is a simple yet effective technique that aligns patch-level distributions
+          between generated and target images. It uses Maximum Mean Discrepancy (MMD) with a linear kernel to match
+          spatial token distributions from intermediate feature maps. PDM is computationally efficient, requires no
+          additional models, and can function as a standalone distillation objective, making it a versatile and powerful
+          addition to the SwD framework.</p>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <section class="section hero is-small">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Experimental results</h2>
+        <br>
+        <div class="content has-text-justified">
+          <p>
+            We conduct a human and automatic evaluation to compare our approach with state-of-the-art baselines.
+            We observe that the proposed SwD outperforms the baseline approaches in most cases.</p> <br>
+            <img src="static/images/results.png" alt="MY ALT TEXT"/> <p>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code></code></pre>
+    </div>
+</section>
+<!--End BibTex citation -->
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
