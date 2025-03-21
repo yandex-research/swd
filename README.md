@@ -1,6 +1,6 @@
 # Scale-wise Distillation of Diffusion Models
 
-<a href='https://arxiv.org'><img src='https://img.shields.io/badge/ArXiv-PDF-red'></a> &nbsp; 
+<a href='https://arxiv.org/pdf/2503.16397'><img src='https://img.shields.io/badge/ArXiv-PDF-red'></a> &nbsp; 
 <a href='https://yandex-research.github.io/swd/'><img src='https://img.shields.io/badge/Project-Page-Green'></a> &nbsp; 
 <a href="https://huggingface.co/spaces/dbaranchuk/Scale-wise-Distillation">
 	    <img src='https://img.shields.io/badge/%F0%9F%A4%97%20Demo-Generation-orange' />
@@ -99,5 +99,10 @@ Coming soon!
 ## Citation
 
 ```bibtex
-
+@article{starodubcev2025swd,
+  title={Scale-wise Distillation of Diffusion Models},
+  author={Nikita Starodubcev and Denis Kuznedelev and Artem Babenko and Dmitry Baranchuk},
+  journal={arXiv preprint arXiv:2503.16397},
+  year={2025}
+}
 ```
