@@ -32,6 +32,11 @@ SwD generates images with higher complexity compared to leading approaches.
 <img src="assets/sbs.png" width="1080px"/>
 </p>
 
+## TODO:
+- [ ] Training code
+- [ ] FLUX
+- [x] Inference with SD3.5
+
 ## 🔥 Inference
 
 ### HF 🤗 Models
