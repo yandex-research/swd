@@ -229,7 +229,7 @@ def run(
             sigma_next = sigmas[i + 1]
             x0_pred = (latents - sigma * noise_pred)
             try:
-                x0_pred = torch.nn.functional.interpolate(x0_pred, size=scales[i + 1])
+                x0_pred = torch.nn.functional.interpolate(x0_pred, size=scales[i + 1], mode='bicubic')
             except IndexError:
                 x0_pred = x0_pred
             noise = torch.randn(x0_pred.shape, generator=generator).to('cuda').half()
