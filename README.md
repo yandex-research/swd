@@ -93,7 +93,7 @@ images = pipe(
 ).images
 ```
 <p align="center">
-<img src="assets/cat.png" width="512px"/>
+<img src="assets/cat.jpg" width="512px"/>
 </p>
 
 ## 🔧 Training
