@@ -64,11 +64,12 @@ pip install -U diffusers
 and then you can run
 ```py
 import torch
-from inference import run
 from diffusers import StableDiffusion3Pipeline
-from peft import LoraConfig, get_peft_model, PeftModel
+from peft import PeftModel
 
-pipe = StableDiffusion3Pipeline.from_pretrained("stabilityai/stable-diffusion-3.5-large", torch_dtype=torch.float16)
+pipe = StableDiffusion3Pipeline.from_pretrained("stabilityai/stable-diffusion-3.5-large",
+                                                torch_dtype=torch.float16,
+                                                custom_pipeline='quickjkee/swd_pipeline')
 pipe = pipe.to("cuda")
 lora_path = 'yresearch/swd-large-6-steps'
 pipe.transformer = PeftModel.from_pretrained(
@@ -76,22 +77,20 @@ pipe.transformer = PeftModel.from_pretrained(
     lora_path,
 )
 generator = torch.Generator().manual_seed(0)
-prompt = 'cat reading a newspaper'
+prompt = 'a cat reading a newspaper'
 sigmas = [1.0000, 0.9454, 0.8959, 0.7904, 0.7371, 0.6022, 0.0000]
 scales = [32, 48, 64, 80, 96, 128]
 
-images = run(
-            pipe,
-            prompt,
-            sigmas=torch.tensor(sigmas).to('cuda'),
-            timesteps=torch.tensor(sigmas[:-1]).to('cuda') * 1000,
-            scales=scales,
-
-            guidance_scale=0.0,
-            height=int(scales[0] * 8),
-            width=int(scales[0] * 8),
-            generator=generator,
-    ).images
+images = pipe(
+    prompt,
+    sigmas=torch.tensor(sigmas).to('cuda'),
+    timesteps=torch.tensor(sigmas[:-1]).to('cuda') * 1000,
+    scales=scales,
+    guidance_scale=0.0,
+    height=int(scales[0] * 8),
+    width=int(scales[0] * 8),
+    generator=generator,
+).images
 ```
 <p align="center">
 <img src="assets/cat.png" width="512px"/>
