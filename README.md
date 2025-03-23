@@ -50,10 +50,10 @@ It is equivalent to diffusion timesteps.
 
 | Model                                                                  | Scales                                                 | Sigmas                                      
 |:-----------------------------------------------------------------------|:-------------------------------------------------------|:--------------------------------------------|
-| [SwD 2B, 6 steps](https://huggingface.co/yresearch/swd-medium-6-steps) | 32, 48, 64, 80, 96, 128                                | 1.0000, 0.9454, 0.8959, 0.7904, 0.7371, 0.6022 |
-| [SwD 2B, 4 steps](https://huggingface.co/yresearch/swd-medium-4-steps) | 32, 64, 96, 128                                        | 1.0000, 0.9454, 0.7904, 0.6022                                              |
-| [SwD 8B, 6 steps](https://huggingface.co/yresearch/swd-large-6-steps)  | 32, 48, 64, 80, 96, 128                                | 1.0000, 0.9454, 0.8959, 0.7904, 0.7371, 0.6022 |
-| [SwD 8B, 4 steps](https://huggingface.co/yresearch/swd-large-4-steps)  | 64, 80, 96, 128                                        | 1.0000, 0.8959, 0.7371, 0.6022              |
+| [SwD 2B, 6 steps](https://huggingface.co/yresearch/swd-medium-6-steps) | 32, 48, 64, 80, 96, 128                                | 1.0000, 0.9454, 0.8959, 0.7904, 0.7371, 0.6022, 0.0000 |
+| [SwD 2B, 4 steps](https://huggingface.co/yresearch/swd-medium-4-steps) | 32, 64, 96, 128                                        | 1.0000, 0.9454, 0.7904, 0.6022, 0.0000                                              |
+| [SwD 8B, 6 steps](https://huggingface.co/yresearch/swd-large-6-steps)  | 32, 48, 64, 80, 96, 128                                | 1.0000, 0.9454, 0.8959, 0.7904, 0.7371, 0.6022, 0.0000 |
+| [SwD 8B, 4 steps](https://huggingface.co/yresearch/swd-large-4-steps)  | 64, 80, 96, 128                                        | 1.0000, 0.8959, 0.7371, 0.6022, 0.0000              |
 
 
 Upgrade to the latest version of the [🧨 diffusers library](https://github.com/huggingface/diffusers)
@@ -77,7 +77,7 @@ pipe.transformer = PeftModel.from_pretrained(
 )
 generator = torch.Generator().manual_seed(0)
 prompt = 'cat reading a newspaper'
-sigmas = [1.0000, 0.9454, 0.8959, 0.7904, 0.7371, 0.6022]
+sigmas = [1.0000, 0.9454, 0.8959, 0.7904, 0.7371, 0.6022, 0.0000]
 scales = [32, 48, 64, 80, 96, 128]
 
 images = run(
