@@ -62,6 +62,7 @@ pip install -U diffusers
 ```
 
 and then you can run
+<br> (Probably, you will need to specify the visible device: %env CUDA_VISIBLE_DEVICES=0, for correct loading of LoRAs.)
 ```py
 import torch
 from diffusers import StableDiffusion3Pipeline
