@@ -35,6 +35,7 @@ SwD generates images with higher complexity compared to leading approaches.
 ## 🔧 TODO
 - [ ] Training code
 - [ ] FLUX
+- [ ] ComfyUI support
 - [x] Inference with SD3.5
 
 ## 🔥 Inference
@@ -56,9 +57,11 @@ It is equivalent to diffusion timesteps.
 | [SwD 8B, 4 steps](https://huggingface.co/yresearch/swd-large-4-steps)  | 64, 80, 96, 128                                        | 1.0000, 0.8959, 0.7371, 0.6022, 0.0000              |
 
 
-Upgrade to the latest version of the [🧨 diffusers library](https://github.com/huggingface/diffusers)
+Upgrade to the latest version of the [🧨 diffusers](https://github.com/huggingface/diffusers)
+and [🧨 peft](https://github.com/huggingface/peft)
 ```
 pip install -U diffusers
+pip install -U peft
 ```
 
 and then you can run
@@ -76,7 +79,8 @@ lora_path = 'yresearch/swd-large-6-steps'
 pipe.transformer = PeftModel.from_pretrained(
     pipe.transformer,
     lora_path,
-)
+).to("cuda")
+
 generator = torch.Generator().manual_seed(0)
 prompt = 'a cat reading a newspaper'
 sigmas = [1.0000, 0.9454, 0.8959, 0.7904, 0.7371, 0.6022, 0.0000]
