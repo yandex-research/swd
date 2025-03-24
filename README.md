@@ -4,6 +4,8 @@
 <a href='https://yandex-research.github.io/swd/'><img src='https://img.shields.io/badge/Project-Page-Green'></a> &nbsp; 
 <a href="https://huggingface.co/spaces/dbaranchuk/Scale-wise-Distillation">
 	    <img src='https://img.shields.io/badge/%F0%9F%A4%97%20Demo-Generation-orange' />
+<a href="https://gist.github.com/dbaranchuk/c29ea632ae7563299b5131bb5d1e24e6">
+	    <img src='https://img.shields.io/badge/Comfy-SwD Large-black' />
 </a>&nbsp;
 
 <p  align="center">
