@@ -3,10 +3,9 @@
 <a href='https://arxiv.org/pdf/2503.16397'><img src='https://img.shields.io/badge/ArXiv-PDF-red'></a> &nbsp; 
 <a href='https://yandex-research.github.io/swd/'><img src='https://img.shields.io/badge/Project-Page-Green'></a> &nbsp; 
 <a href="https://huggingface.co/spaces/dbaranchuk/Scale-wise-Distillation">
-	    <img src='https://img.shields.io/badge/%F0%9F%A4%97%20Demo-Generation-orange' />
+	    <img src='https://img.shields.io/badge/%F0%9F%A4%97%20Demo-Generation-orange'></a>
 <a href="https://gist.github.com/dbaranchuk/c29ea632ae7563299b5131bb5d1e24e6">
-	    <img src='https://img.shields.io/badge/Comfy-SwD Large-black' />
-</a>&nbsp;
+	    <img src='https://img.shields.io/badge/ComfyUI-SwD Large-blue'></a> &nbsp;
 
 <p  align="center">
 ⚡️ <b> SwD is twice as fast as leading distillation methods </b> <br> 
@@ -16,6 +15,12 @@
 <p align="center">
 <img src="assets/main.jpg" width="1080px"/>
 </p>
+
+## 🔧 TODO
+- [ ] Training code
+- [ ] FLUX
+- [x] ComfyUI support
+- [x] Inference with SD3.5
 
 ## 💡 Quick introduction
 The paper introduces Scale-wise Distillation (SwD), a novel framework for accelerating 
@@ -34,11 +39,6 @@ SwD generates images with higher complexity compared to leading approaches.
 <img src="assets/sbs.png" width="1080px"/>
 </p>
 
-## 🔧 TODO
-- [ ] Training code
-- [ ] FLUX
-- [ ] ComfyUI support
-- [x] Inference with SD3.5
 
 ## 🔥 Inference
 
