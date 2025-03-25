@@ -81,7 +81,7 @@ lora_path = 'yresearch/swd-large-6-steps'
 pipe.transformer = PeftModel.from_pretrained(
     pipe.transformer,
     lora_path,
-).to("cuda")
+)
 
 generator = torch.Generator().manual_seed(0)
 prompt = 'a cat reading a newspaper'
