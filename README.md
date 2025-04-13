@@ -3,9 +3,10 @@
 <a href='https://arxiv.org/pdf/2503.16397'><img src='https://img.shields.io/badge/ArXiv-PDF-red'></a> &nbsp; 
 <a href='https://yandex-research.github.io/swd/'><img src='https://img.shields.io/badge/Project-Page-Green'></a> &nbsp; 
 <a href="https://huggingface.co/spaces/dbaranchuk/Scale-wise-Distillation">
-	    <img src='https://img.shields.io/badge/%F0%9F%A4%97%20Demo-Generation-orange'></a>
+	    <img src='https://img.shields.io/badge/%F0%9F%A4%97%20Demo-Generation-orange' />
 <a href="https://gist.github.com/dbaranchuk/c29ea632ae7563299b5131bb5d1e24e6">
-	    <img src='https://img.shields.io/badge/ComfyUI-SwD Large-blue'></a> &nbsp;
+	    <img src='https://img.shields.io/badge/Comfy-SwD Large-black' />
+</a>&nbsp;
 
 <p  align="center">
 ⚡️ <b> SwD is twice as fast as leading distillation methods </b> <br> 
@@ -15,12 +16,6 @@
 <p align="center">
 <img src="assets/main.jpg" width="1080px"/>
 </p>
-
-## 🔧 TODO
-- [ ] Training code
-- [ ] FLUX
-- [x] ComfyUI support
-- [x] Inference with SD3.5
 
 ## 💡 Quick introduction
 The paper introduces Scale-wise Distillation (SwD), a novel framework for accelerating 
@@ -39,6 +34,15 @@ SwD generates images with higher complexity compared to leading approaches.
 <img src="assets/sbs.png" width="1080px"/>
 </p>
 
+## 🔥 News
+-  🤗 SwD + LCM flow matching scheduler has been integrated into the diffusers library:
+<a href=https://github.com/huggingface/diffusers/blob/main/src/diffusers/schedulers/scheduling_flow_match_lcm.py>link</a>
+
+## 🔧 TODO
+- [ ] Training code
+- [ ] FLUX
+- [x] ComfyUI support
+- [x] Inference with SD3.5
 
 ## 🔥 Inference
 
@@ -70,6 +74,47 @@ and then you can run
 <br> (Probably, you will need to specify the visible device: %env CUDA_VISIBLE_DEVICES=0, for correct loading of LoRAs.)
 ```py
 import torch
+from diffusers.schedulers.scheduling_flow_match_lcm import FlowMatchLCMScheduler
+from diffusers import StableDiffusion3Pipeline
+from peft import PeftModel
+
+# Loading models
+pipe = StableDiffusion3Pipeline.from_pretrained("stabilityai/stable-diffusion-3.5-large", 
+                                                torch_dtype=torch.float16)
+pipe = pipe.to("cuda")
+lora_path = 'yresearch/swd-large-6-steps'
+pipe.transformer = PeftModel.from_pretrained(
+    pipe.transformer,
+    lora_path,
+)
+
+# LCM scheduler
+pipe.scheduler = FlowMatchLCMScheduler.from_config(pipe.scheduler.config, 
+                                                   shift=1.0)
+
+# Setting up the scale factors
+# We define it wrt input size 
+# In this case: 32->48->64->80->96->128
+pipe.scheduler.set_scale_factors(
+    scale_factors=[1.5, 2., 2.5, 3., 4.], 
+    upscale_type='bicubic'
+)
+
+# Generation
+image = pipe(
+    "a cat reading a newspaper",
+    sigmas=[1.0000, 0.9454, 0.8959, 0.7904, 0.7371, 0.6022],
+    guidance_scale=0.0,
+    generator=torch.Generator().manual_seed(0),
+    width=256,
+    height=256
+).images[0]
+```
+
+(OLD) Alternatively, you can use a custom pipeline. In this case, 
+we have slightly different working semantics with scaling factors.
+```py
+import torch
 from diffusers import StableDiffusion3Pipeline
 from peft import PeftModel
 
@@ -81,7 +126,7 @@ lora_path = 'yresearch/swd-large-6-steps'
 pipe.transformer = PeftModel.from_pretrained(
     pipe.transformer,
     lora_path,
-)
+).to("cuda")
 
 generator = torch.Generator().manual_seed(0)
 prompt = 'a cat reading a newspaper'
