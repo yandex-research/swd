@@ -6,6 +6,9 @@
 	    <img src='https://img.shields.io/badge/%F0%9F%A4%97%20Demo-Generation-orange' />
 <a href="https://gist.github.com/dbaranchuk/c29ea632ae7563299b5131bb5d1e24e6">
 	    <img src='https://img.shields.io/badge/Comfy-SwD Large-black' />
+</a>
+<a href="https://github.com/YaroslavIv/comfyui_swd">
+	    <img src='https://img.shields.io/badge/Custom Comfy-SwD-black' />
 </a>&nbsp;
 
 <p  align="center">
@@ -97,7 +100,7 @@ pipe.scheduler = FlowMatchLCMScheduler.from_config(pipe.scheduler.config,
 # In this case: 32->48->64->80->96->128
 pipe.scheduler.set_scale_factors(
     scale_factors=[1.5, 2., 2.5, 3., 4.], 
-    upscale_type='bicubic'
+    upscale_mode='bicubic'
 )
 
 # Generation
