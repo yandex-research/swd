@@ -38,12 +38,13 @@ SwD generates images with higher complexity compared to leading approaches.
 </p>
 
 ## 🔥 News
+-  We have released the FLUX checkpoint
 -  🤗 SwD + LCM flow matching scheduler has been integrated into the diffusers library:
 <a href=https://github.com/huggingface/diffusers/blob/main/src/diffusers/schedulers/scheduling_flow_match_lcm.py>link</a>
 
 ## 🔧 TODO
 - [ ] Training code
-- [ ] FLUX
+- [x] FLUX
 - [x] ComfyUI support
 - [x] Inference with SD3.5
 
@@ -74,7 +75,9 @@ pip install -U peft
 ```
 
 and then you can run
-<br> (Probably, you will need to specify the visible device: %env CUDA_VISIBLE_DEVICES=0, for correct loading of LoRAs.)
+
+### 📌 Stable Diffusion 3.5 Large 
+Probably, you will need to specify the visible device: %env CUDA_VISIBLE_DEVICES=0, for correct loading of LoRAs.
 ```py
 import torch
 from diffusers.schedulers.scheduling_flow_match_lcm import FlowMatchLCMScheduler
@@ -150,6 +153,38 @@ images = pipe(
 <p align="center">
 <img src="assets/cat.jpg" width="512px"/>
 </p>
+
+### 📌 FLUX
+```py
+import torch
+from diffusers import StableDiffusion3Pipeline
+from peft import PeftModel
+
+pipe = FluxPipeline.from_pretrained("black-forest-labs/FLUX.1-dev", 
+                                    torch_dtype=torch.bfloat16, 
+                                    custom_pipeline='quickjkee/swd_pipeline_flux').to('cuda')
+distill_check = 'yresearch/swd_flux'
+pipe.transformer = PeftModel.from_pretrained(
+    pipe.transformer,
+    distill_check,
+)
+
+sigmas = [1.0000, 0.8956, 0.7363, 0.6007, 0.0000]
+scales = [64, 80, 96, 128]
+prompt = 'a cat reading a newspaper'
+
+image = pipe(
+    prompt=prompt,
+    height=int(scales[0] * 8),
+    width=int(scales[0] * 8),
+    scales=scales,
+    sigmas=sigmas,
+    timesteps=torch.tensor(sigmas[:-1]).to('cuda') * 1000,
+    guidance_scale=4.5,
+    max_sequence_length=512,
+    generator=torch.Generator("cpu").manual_seed(0)
+).images[0]
+```
 
 ## 🔧 Training
 
