@@ -47,7 +47,7 @@ SwD generates images with higher complexity compared to leading approaches.
 ## 🔥 Inference
 
 ### HF 🤗 Models
-We release two versions of SwD, Medium (2B) and Large (8B), distilled from SD3.5. <br>
+We release three versions of SwD: Medium (2B) and Large (8B), distilled from SD3.5, and FLUX (12B) <br>
 SwD requires two key hyperparameters: <b> scales </b> and <b> sigmas </b>. 
 - The scales hyperparameter defines the spatial resolution at which predictions are performed during the generation
 process. It specifies the sequence of resolutions (e.g., starting from a lower resolution like 256×256 
