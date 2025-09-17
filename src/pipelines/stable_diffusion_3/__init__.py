@@ -1,0 +1,1 @@
+from .pipeline_stable_diffusion_3 import ScaleWiseStableDiffusion3Pipeline
