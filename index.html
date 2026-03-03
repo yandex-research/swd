@@ -11,7 +11,7 @@
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/> -->
 
-<!-- 
+<!--
   <meta name="twitter:title" content="Invertible Consistency Distillation for
 Text-Guided Image Editing in Around 7 Steps">
   <meta name="twitter:description" content="invertible Consistency Distillation (iCD), a generalized consistency distillation framework that facilitates both high-quality image synthesis and accurate image encoding in only 3-4 inference steps.">
@@ -40,6 +40,34 @@ Text-Guided Image Editing in Around 7 Steps">
   <script src="static/js/bulma-carousel.min.js"></script>
   <script src="static/js/bulma-slider.min.js"></script>
   <script src="static/js/index.js"></script>
+  <style>
+    .image-row {
+      display: flex;
+      gap: 10px;            /* space between images */
+      align-items: flex-start;
+    }
+
+    .image-left {
+      flex: 0 0 35%;   /* smaller */
+    }
+
+    .image-right {
+      flex: 0 0 65%;   /* larger */
+    }
+
+    .image-row img {
+      width: 100%;           /* each image takes half the container */
+      height: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+    /* Optional: make responsive */
+    @media (max-width:768px){
+      .image-row{ flex-direction:column; }
+      .image-left, .image-right{ flex:0 0 auto; width:100%; }
+    }
+  </style>
 </head>
 <body>
 
@@ -54,11 +82,13 @@ Text-Guided Image Editing in Around 7 Steps">
               <!-- Paper authors -->
               <span class="author-block">
                 <!-- <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">Nikita Starodubcev</a><sup>1, 2</sup>,</span> -->
-                    <a href="https://scholar.google.com/citations?user=o6pRm_gAAAAJ&hl" target="_blank">Nikita Starodubcev</a><sup></sup>,</span>
-                <span class="author-block">
-                    <a href="https://scholar.google.com/citations?hl=en&user=L78B2lcAAAAJ&view_op=list_works&sortby=pubdate" target="_blank">Denis Kuznedelev</a><sup></sup>,</span>
+                    <a href="https://scholar.google.com/citations?user=o6pRm_gAAAAJ&hl=en" target="_blank">Nikita Starodubcev</a><sup></sup>,</span>
+                    <span class="author-block">
+                  <a href="https://scholar.google.com/citations?user=BovM6psAAAAJ&hl=en" target="_blank">Ilya Drobyshevskiy</a><sup></sup>,</span>
                   <span class="author-block">
-                    <a href="https://scholar.google.ru/citations?user=2Kv3JP0AAAAJ&hl" target="_blank">Artem Babenko</a><sup></sup>,
+                    <a href="https://scholar.google.com/citations?user=L78B2lcAAAAJ&hl=en" target="_blank">Denis Kuznedelev</a><sup></sup>,</span>
+                  <span class="author-block">
+                    <a href="https://scholar.google.ru/citations?user=2Kv3JP0AAAAJ&hl=en" target="_blank">Artem Babenko</a><sup></sup>,
                   </span>
                   <span class="author-block">
                     <a href="https://dbaranchuk.github.io/" target="_blank">Dmitry Baranchuk</a><sup></sup>
@@ -71,27 +101,14 @@ Text-Guided Image Editing in Around 7 Steps">
                     <!-- <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span> -->
                   </div>
 
+
                   <div class="column has-text-centered">
                     <div class="publication-links">
+                      <div class="is-size-5 publication-authors" style="margin-bottom: 1rem;">
+                        <span style="color: #3273dc; font-weight: bold;">ICLR 2026</span>
+                      </div>
                          <!-- Arxiv PDF link -->
-                      <span class="link-block">
-                        <a href="https://huggingface.co/spaces/dbaranchuk/SwD-FLUX" target="_blank"
-                        class="external-link button is-normal is-rounded is-dark">
-                        <span class="icon">
-                          🤗
-                        </span>
-                        <span>Demo FLUX</span>
-                      </a>
-                      </span>
-                      <span class="link-block">
-                        <a href="https://huggingface.co/spaces/dbaranchuk/SwD-SD3.5-Large" target="_blank"
-                        class="external-link button is-normal is-rounded is-dark">
-                        <span class="icon">
-                          🤗
-                        </span>
-                        <span>Demo SD3.5 Large</span>
-                      </a>
-                      </span>
+
                     <!-- Supplementary PDF link -->
                     <!-- <span class="link-block">
                       <a href="static/pdfs/supplementary_material.pdf" target="_blank"
@@ -124,6 +141,24 @@ Text-Guided Image Editing in Around 7 Steps">
                   <span>arXiv</span>
                 </a>
               </span>
+              <span class="link-block">
+                        <a href="https://huggingface.co/spaces/dbaranchuk/SwD-FLUX" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          🤗
+                        </span>
+                        <span>Demo FLUX</span>
+                      </a>
+                      </span>
+                      <span class="link-block">
+                        <a href="https://huggingface.co/spaces/dbaranchuk/SwD-SD3.5-Large" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          🤗
+                        </span>
+                        <span>Demo SD3.5 Large</span>
+                      </a>
+                      </span>
             </div>
           </div>
         </div>
@@ -133,18 +168,21 @@ Text-Guided Image Editing in Around 7 Steps">
 </section>
 
 
-      <div class="columns is-centered has-text-centered">
-        <h2> 🔥 SwD is twice as fast as leading distillation methods</h2>
+      <!-- <div class="columns is-centered has-text-centered">
+        <h2> 🔥 SwD achieves the quality of leading distillation methods while being ~2x faster</h2>
         </div>
   <br>
   <div class="columns is-centered has-text-centered">
-  <h2 > 🔥 SwD surpasses leading distillation methods under the same computational budget.</h2>
-    </div>
+  <h2 > 🔥 SwD surpasses </h2>
+    </div> -->
 
   <section class="section hero is-small">
   <div class="container is-max-desktop">
     <p>
       <img src="static/images/main_2.jpg"/> <p></p>
+      <h2 class="subtitle has-text-centered">
+          Visual examples of 4-step SD3.5 Large SwD.
+      </h2>
   </div>
 </section>
 
@@ -156,17 +194,12 @@ Text-Guided Image Editing in Around 7 Steps">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            We present SwD, a scale-wise distillation framework of diffusion models (DMs), which effectively employs
-            next-scale prediction ideas for diffusion-based few-step generators. In more detail,
-            SwD is inspired by the recent insights relating diffusion processes to the implicit spectral autoregression.
-            We suppose that DMs can initiate generation at lower data resolutions and gradually upscale the samples at
-            each denoising step without loss in performance while significantly reducing computational costs.
-            SwD naturally integrates this idea into existing diffusion distillation methods based on distribution
-            matching. Also, we enrich the family of distribution matching approaches
-            by introducing a novel patch loss enforcing finer-grained similarity to the target distribution.
-            When applied to state-of-the-art text-to-image diffusion models, SwD approaches the inference times of
-            two full resolution steps and significantly outperforms the counterparts under the same computation budget,
-            as evidenced by both automated metrics and human preference studies.
+            Recent diffusion distillation methods have achieved remarkable progress, enabling high-quality ~4-step sampling for large-scale text-conditional image and video diffusion models.
+However, further reducing the number of sampling steps becomes more and more challenging, suggesting that efficiency gains may be better mined along other model axes.
+Motivated by this perspective, we introduce SwD, a scale-wise diffusion distillation framework that equips few-step models with progressive generation, avoiding redundant computations at intermediate diffusion timesteps.
+Beyond efficiency, SwD enriches the family of distribution matching distillation approaches by introducing a simple patch-level distillation objective based on Maximum Mean Discrepancy (MMD).
+This objective significantly improves the convergence of existing distillation methods and performs surprisingly well in isolation, offering a competitive baseline for diffusion distillation.
+Applied to state-of-the-art text-to-image/video diffusion models, SwD approaches the sampling speed of two full-resolution steps and largely outperforms alternatives under the same compute budget, as evidenced by automatic metrics and human preference studies.
           </p>
         </div>
       </div>
@@ -180,31 +213,54 @@ Text-Guided Image Editing in Around 7 Steps">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Method</h2>
+
+
         <div class="content has-text-justified">
           <p>
             <br> <b>1. Scale-wise Distillation</b> </br> <p>
-          The generation process begins with Gaussian noise at the lowest resolution, such as 256×256.
-          At each step, the model upscales the previous prediction to a higher resolution, injects noise based on
-          the current timestep, and predicts a cleaner version of the image at the new resolution. This progressive
-          upscaling continues until the target resolution, like 1024×1024, is reached, resulting in a high-quality image.
 
-          <br>
+            We propose a pipeline that adapts pretrained diffusion models into progressive few-step models.</p>
+            
+            <p></p><strong>SwD training step.</strong> 
+              i) Sample a pair of adjacent resolutions [<em>s<sub>i</sub></em>, <em>s<sub>i+1</sub></em>] from <em>scale schedule</em>. 
+              ii) Downscale the training images to <em>s<sub>i</sub></em> and <em>s<sub>i+1</sub></em>. 
+              iii) The lower scale versions are upsampled and noised to a timestep <em>t<sub>i</sub></em> with the forward process. 
+              iv) Given the noised images, the model <em>G</em> predicts clean data at target scale <em>s<sub>i+1</sub></em>. 
+              v) Distribution matching loss is calculated between predicted and target images.</p>
 
-          The training pipeline for SwD involves sampling full-resolution images, downscaling them to lower resolutions,
-          and encoding them into the latent space. The latent representations are upscaled, noised based on the timestep,
-          and fed into the generator, which predicts clean latents at the target scale. A distribution matching loss
-          is then computed between the predicted and target latents. This process is repeated iteratively across multiple
-          scales, training the model to generate high-quality images progressively.
+            <p></p><strong>SwD sampling.</strong> Few-step model starts sampling from noise at the low resolution <em>s<sub>1</sub></em> and gradually increases it over generation steps. 
+            At each step, the previous denoised prediction at the scale <em>s<sub>i−1</sub></em> is upsampled and noised according to the <em>timestep schedule</em>, <em>t<sub>i</sub></em>. 
+            Then, the generator predicts a clean image at the current resolution <em>s<sub>i</sub></em>.</p>
 
-          The figures below visually demonstrate the SwD training and inference pipelines. <br>
+            <p>The figures below visually demonstrate the SwD sampling and training procedures.</p> <br>
+
+            <div class="image-row">
+            <div class="content has-text-justified">
+              <div class="image-left">
+                <img src="static/images/method_sampling.jpg" alt="Image 1">
+              </div>
+            <p class="is-size-6 has-text-centered" >
+              SwD sampling.
+            </p>
+            </div>
+
+            <div class="content has-text-justified">
+              <div class="image-right">
+                <img src="static/images/method_training.jpg" alt="Image 2">
+              </div>
+            <p class="is-size-6 has-text-centered">
+                SwD training step.
+            </p>
+            </div>
+          </div>
+
         </p>
-            <img src="static/images/method.png" alt="MY ALT TEXT"/> <p></p>
-             <br> <b>2. Patch Distribution Matching </b> <p>
-          <p>Patch Distribution Matching (PDM) is a simple yet effective technique that aligns patch-level distributions
-          between generated and target images. It uses Maximum Mean Discrepancy (MMD) with a linear kernel to match
-          spatial token distributions from intermediate feature maps. PDM is computationally efficient, requires no
-          additional models, and can function as a standalone distillation objective, making it a versatile and powerful
-          addition to the SwD framework.</p>
+             <br> <b>2. Diffusion Distillation with MMD </b> <p>
+          <p>We introduce a novel distillation objective based on Maximum Mean Discrepancy (MMD) that aligns patch-level distributions between generated and target images. 
+             The MMD is calculated on the intermediate spatial features of the pretrained diffusion models using a linear kernel
+                (<em>k</em>(<strong>x</strong>, <strong>y</strong>) = <strong>x</strong><sup>T</sup><strong>y</strong>),
+                which reduces the objective to MSE between spatial token means per image.
+             The resulting loss is computationally efficient, requires no additional trainable models, and shows promising results even as a standalone distillation objective.
           </p>
         </div>
       </div>
@@ -213,22 +269,52 @@ Text-Guided Image Editing in Around 7 Steps">
 </section>
 
 
-  <section class="section hero is-small">
+<section class="section hero is-small">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Experimental results</h2>
+        <h2 class="title is-3">Results</h2>
         <br>
         <div class="content has-text-justified">
-          <p>
-            We conduct a human and automatic evaluation to compare our approach with state-of-the-art baselines.
-            We observe that the proposed SwD outperforms the baseline approaches in most cases.</p> <br>
-            <img src="static/images/results.png" alt="MY ALT TEXT"/> <p>
+          <!-- <p>
+            We conduct an automatic evaluation and human preference study to compare our approach with state-of-the-art baselines.
+          </p>
+          <br> -->
+          
+          <img src="static/images/table.jpg" alt="MY ALT TEXT"/>
+          <p class="is-size-6 has-text-centered">
+            Quantitative comparison of <strong>SwD</strong> against other leading open-source models.
+            <strong>Bold</strong> indicates the best-performing model within each DM group, while
+            <u>underline</u> denotes the second best.
+          </p>
+
+          <br>
+          
+          <img src="static/images/sbs.jpg" alt="MY ALT TEXT 2"/>
+          <p class="is-size-6 has-text-centered">
+            Human preference study for <strong>SwD</strong> against the baseline models
           </p>
         </div>
       </div>
     </div>
   </div>
+</section>
+
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>
+        @inproceedings{
+          starodubcev2026scalewise,
+          title={Scale-wise Distillation of Diffusion Models},
+          author={Nikita Starodubcev and Ilya Drobyshevskiy and Denis Kuznedelev and Artem Babenko and Dmitry Baranchuk},
+          booktitle={The Fourteenth International Conference on Learning Representations},
+          year={2026},
+          url={https://openreview.net/forum?id=Z06LNjqU1g}
+        }
+    </code></pre>
+    </div>
 </section>
 
 
