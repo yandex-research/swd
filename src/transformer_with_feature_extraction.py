@@ -55,7 +55,7 @@ class TransformerCls(nn.Module):
         return self.teacher_transformer(*args, **kwargs)
 
 
-def forward_with_classify(
+def forward_with_feature_extraction(
     self,
     hidden_states: torch.FloatTensor,
     encoder_hidden_states: torch.FloatTensor = None,

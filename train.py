@@ -7,11 +7,11 @@ from diffusers.image_processor import VaeImageProcessor
 from tqdm.auto import tqdm
 
 from src.dataset import get_loader
-from src.distillation_losses import fake_diffusion_loss, generator_loss
+from src.losses import fake_diffusion_loss, generator_loss
 from src.evaluation.eval import distributed_sampling, log_validation
 from src.evaluation.metrics import calculate_scores
 from src.flow_matching_sampler import FlowMatchingSolver
-from src.gan import TransformerCls, forward_with_classify
+from src.transformer_with_feature_extraction import TransformerCls, forward_with_feature_extraction
 from src.utils.prepare_utils import (
     prepare_accelerator,
     prepare_models,
@@ -82,7 +82,7 @@ def train(args):
     )
 
     ## Add GAN head
-    transformer_fake.forward = types.MethodType(forward_with_classify, transformer_fake)
+    transformer_fake.forward = types.MethodType(forward_with_feature_extraction, transformer_fake)
 
     transformer_fake = TransformerCls(args, transformer_fake)
     initial_global_step = load_if_exist(args, accelerator, transformer, is_student=True)

@@ -105,6 +105,7 @@ image = pipe(
     guidance_scale=1.0,
     height=int(scales[0] * 8),
     width=int(scales[0] * 8),
+    max_sequence_length=512,
 ).images[0]
 ```
 
