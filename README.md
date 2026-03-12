@@ -34,7 +34,7 @@ SwD requires two key arguments: `scales` and `sigmas`.
 | Model                                                                  | Scales                                                 | Sigmas
 |:-----------------------------------------------------------------------|:-------------------------------------------------------|:--------------------------------------------|
 | [SD3.5-M-SwD, 6 steps](https://huggingface.co/yresearch/swd-medium-6-steps) (default) | 32, 48, 64, 80, 96, 128                                        | 1.0000, 0.9454, 0.8959, 0.7904, 0.7371, 0.6022, 0.0000
-| [SD3.5-M-SwD, 4 steps](https://huggingface.co/yresearch/swd-medium-6-steps) | 64, 80, 96, 128                                        | 1.0000, 0.8959, 0.7371, 0.6022, 0.0000
+| [SD3.5-M-SwD, 4 steps](https://huggingface.co/yresearch/swd-medium-4-steps) | 64, 80, 96, 128                                        | 1.0000, 0.8959, 0.7371, 0.6022, 0.0000
 | [SD3.5-L-SwD](https://huggingface.co/yresearch/swd-large-4-steps)  | 64, 80, 96, 128                                        | 1.0000, 0.8959, 0.7371, 0.6022, 0.0000              |                                            |
 | [FLUX-SwD](https://huggingface.co/yresearch/swd_flux)         | 64, 80, 96, 128                                        | 1.0000, 0.8959, 0.7371, 0.6022, 0.0000              |
 | [SDXL-SwD](https://huggingface.co/yresearch/swd-sdxl)*         | 64, 80, 96, 128                                        | 1.0000, 0.8000, 0.6000, 0.4000, 0.0000              |
