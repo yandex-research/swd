@@ -11,7 +11,7 @@ from src.losses import fake_diffusion_loss, generator_loss
 from src.evaluation.eval import distributed_sampling, log_validation
 from src.evaluation.metrics import calculate_scores
 from src.flow_matching_sampler import FlowMatchingSolver
-from src.transformer_with_feature_extraction import TransformerCls, forward_with_feature_extraction
+from src.transformer_with_discriminator import TransformerCls, forward_with_feature_extraction
 from src.utils.prepare_utils import (
     prepare_accelerator,
     prepare_models,

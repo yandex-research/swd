@@ -25,7 +25,7 @@ Text-to-image SwD achieves ~2x speedup compared to full-resolution few-step alte
 ## 🔥 Inference
 
 ### HF 🤗 Models
-We release four versions of SwD: `SDXL-SwD (2.6B)`, `SD3.5-Medium-SwD (2.2B)`, `SD3.5-Large-SwD (8B)` and `FLUX-SwD (12B)` <br>
+We release four versions of SwD: `SDXL-SwD (2.6B)`, `SD3.5-Medium-SwD (2.2B)`, `SD3.5-Large-SwD (8B)` and `FLUX-SwD (12B)`. <br>
 
 SwD requires two key arguments: `scales` and `sigmas`.
 - `scales` defines a sequence of spatial latent resolutions used during the progressive sampling.
@@ -33,9 +33,10 @@ SwD requires two key arguments: `scales` and `sigmas`.
 
 | Model                                                                  | Scales                                                 | Sigmas
 |:-----------------------------------------------------------------------|:-------------------------------------------------------|:--------------------------------------------|
-| [SD3.5-M-SwD](https://huggingface.co/yresearch/swd-medium-4-steps) | 64, 80, 96, 128                                        | 1.0000, 0.8956, 0.7363, 0.6007, 0.0000
-| [SD3.5-L-SwD](https://huggingface.co/yresearch/swd-large-4-steps)  | 64, 80, 96, 128                                        | 1.0000, 0.8956, 0.7363, 0.6007, 0.0000              |                                            |
-| [FLUX-SwD](https://huggingface.co/yresearch/swd_flux)         | 64, 80, 96, 128                                        | 1.0000, 0.8956, 0.7363, 0.6007, 0.0000              |
+| [SD3.5-M-SwD, 6 steps](https://huggingface.co/yresearch/swd-medium-6-steps) (default) | 32, 48, 64, 80, 96, 128                                        | 1.0000, 0.9454, 0.8959, 0.7904, 0.7371, 0.6022, 0.0000
+| [SD3.5-M-SwD, 4 steps](https://huggingface.co/yresearch/swd-medium-6-steps) | 64, 80, 96, 128                                        | 1.0000, 0.8959, 0.7371, 0.6022, 0.0000
+| [SD3.5-L-SwD](https://huggingface.co/yresearch/swd-large-4-steps)  | 64, 80, 96, 128                                        | 1.0000, 0.8959, 0.7371, 0.6022, 0.0000              |                                            |
+| [FLUX-SwD](https://huggingface.co/yresearch/swd_flux)         | 64, 80, 96, 128                                        | 1.0000, 0.8959, 0.7371, 0.6022, 0.0000              |
 | [SDXL-SwD](https://huggingface.co/yresearch/swd-sdxl)*         | 64, 80, 96, 128                                        | 1.0000, 0.8000, 0.6000, 0.4000, 0.0000              |
 
 (*) This checkpoint was trained using only the MMD loss, as discussed in the paper.
